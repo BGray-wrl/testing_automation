@@ -1,0 +1,22 @@
+name: Test File Push
+
+on:
+  workflow_dispatch:  # Allows you to manually trigger this action
+
+jobs:
+  push-test-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create test file
+        run: echo "This is a test file pushed by ChatGPT." > chatgpt_test.txt
+
+      - name: Commit and push test file
+        run: |
+          git config --global user.name "ChatGPT Bot"
+          git config --global user.email "chatgpt@bot.com"
+          git add chatgpt_test.txt
+          git commit -m "ChatGPT test commit via GitHub Actions"
+          git push https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git main
