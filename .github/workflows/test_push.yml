@@ -19,4 +19,4 @@ jobs:
           git config --global user.email "chatgpt@bot.com"
           git add chatgpt_test.txt
           git commit -m "ChatGPT test commit via GitHub Actions"
-          git push https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git main
+          git push https://${{ secrets.GH_TOKEN }}@github.com/BGray-wrl/testing_automation.git main
